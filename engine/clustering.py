@@ -232,7 +232,7 @@ def main():
     for i in range(7):
         bucket = np.array([0,0,0,0,0,0,0]);
         temp_c = cluster.members[i];
-        for j in range(len(temp_c)):
+        for j in range(len(temp_c.points)):
             bucket[temp_c.points[j].label] += 1;
         label_list += [bucket.argmax];
     center_list = cluster.get_centroids();
@@ -240,7 +240,7 @@ def main():
     for i in range(len(points_test)):
         dist = float("inf");
         c_id = 0; 
-        for j in range(len(temp_c)):
+        for j in range(len(center_list)):
             if(points_test[i].distance(center_list[j]) < dist):
                 dist = points[i].distance(center_list[j]);
                 c_id = j;
