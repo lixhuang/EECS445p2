@@ -233,7 +233,7 @@ def main():
         bucket = np.array([0,0,0,0,0,0,0]);
         temp_c = cluster.members[i];
         for j in range(len(temp_c)):
-            bucket = np.add(bucket, temp_c.points[j].label);
+            bucket[temp_c.points[j].label] += 1;
         label_list += [bucket.argmax];
     center_list = cluster.get_centroids();
 
@@ -248,7 +248,7 @@ def main():
 
     c = 0;
     for i in range(len(points_test)):
-        if(points_test[i].label[pred_lb[i]]):
+        if(points_test[i].label == pred_lb[i]):
             c += 1;
     print(c);
 

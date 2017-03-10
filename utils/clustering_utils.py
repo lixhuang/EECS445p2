@@ -44,7 +44,7 @@ def get_traindata():
            where nc is the number of classes represented in the data
     """
     data = FER2013()
-    images, labels = data.preprocessed_data('train', one_hot=1, balance_classes=1)  # 'train' or 'val'
+    images, labels = data.preprocessed_data('train', one_hot=0, balance_classes=1)  # 'train' or 'val'
     X = np.zeros((len(images), 1024))
     for i in range(len(images)):
         X[i, :] = np.asarray(images[i]).flatten()
@@ -60,7 +60,7 @@ def get_testdata():
            where nc is the number of classes represented in the data
     """
     data = FER2013()
-    images, labels = data.preprocessed_data('test', one_hot=1, balance_classes=1)  # 'train' or 'val'
+    images, labels = data.preprocessed_data('test', one_hot=0, balance_classes=1)  # 'train' or 'val'
     X = np.zeros((len(images), 1024))
     for i in range(len(images)):
         X[i, :] = np.asarray(images[i]).flatten()
